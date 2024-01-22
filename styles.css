@@ -439,16 +439,24 @@ footer{
     color: white;
     font-size: 2rem;
     text-align: center;
+    background-color: #222222;
+    justify-content: center;
+    margin-top: 50%;
+
 }
 
 @media only screen and (max-width: 768px) {
     #mobile-warning {
         display: block;
-
     }
-    .show-content{
+    body{
+      background-color: #222222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #show-content{
       display:none;
-    }
-    
+    }  
 
 }
