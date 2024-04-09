@@ -1,5 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+/* loader */
+.loader{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(39, 39, 39, 0.64);
+  backdrop-filter: blur(15px);
+  z-index: 99999;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  /* visibility: none; */
+}
+.loader::-webkit-scrollbar{
+  display: none;
+}
 nav{
   font-size: 14px;
+  /* margin-top: -20px; */
  
 }
 
@@ -53,15 +79,15 @@ nav div{
 /* ------------------------ */
 .carousel{
   /* border: 3px solid red; */
-  padding-top:10vh;
+  padding-top:4vh;
 }
-.carousel-item img{
+/* .carousel-item img{
   /* color: red; */
   /* background-color: blue; */
   /* opacity: 0.5; */
   /* z-index: -100; */
-  /* margin-top: 10%; */
-}
+  /* margin-top: 10%; *
+} */
 
 
 .carousel-caption {
@@ -176,16 +202,17 @@ nav div{
   align-items: center;
   right: 0;
   margin-top: 40px;
-  opacity: 0;
+  opacity: 1;
 }
 .second-section-content{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* .second-section-content .text{
-  margin-bottom: 50px;
-} */
+.second-section-content .text{
+  overflow: hidden;
+  /* opacity: 1; */
+}
 .cards-container{
   display: flex;
   flex-wrap: wrap;
@@ -282,6 +309,8 @@ nav div{
   align-items: center;
   flex-direction: column;
   /* margin-top: 10%; */
+  overflow: hidden;
+  opacity: 1;
 }
 .details{
   justify-content: justify;
@@ -429,8 +458,12 @@ span.details-icon{
   background-color: #00b3ff;
 
 }
-
-
+.third-section-img{
+  overflow: hidden;
+}
+.third-section-img img{
+  opacity: 1;
+}
 
 
 
