@@ -4,13 +4,46 @@
   box-sizing: border-box;
 
 }
+/* body{
+  background-color: #222222;
+  color: white;
+} */
+
+.darkmode{
+  width: 3vw;
+  height: 6vh;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  backdrop-filter: blur(15px);
+  position: fixed;
+  padding: 20px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+}
+.darkmode button{
+  border: none;
+  background: none;
+  outline: none;
+}
+.darkmode i{
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  /* margin: 0 auto; */
+
+}
 /* loader */
 .loader{
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: rgba(39, 39, 39, 0.64);
-  backdrop-filter: blur(15px);
+  background: rgba(39, 39, 39, 0.699);
+  backdrop-filter: blur(10px);
   z-index: 99999;
   overflow: hidden;
   color: white;
@@ -19,9 +52,20 @@
   align-items: center;
   font-size: 5rem;
   /* visibility: none; */
+  transition: 0.2s ease linear;
+  /* animation: fade-in 0.5s ease-out; */
 }
 .loader::-webkit-scrollbar{
   display: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 nav{
   font-size: 14px;
@@ -36,7 +80,6 @@ nav div{
 }
 
 .navbar{
-
   position: fixed;
   padding: 20px 10px;
   z-index: 100;
@@ -47,6 +90,7 @@ nav div{
 .container-fluid{
   justify-content: center;
   align-items: center;
+  
 }
 .navbar-nav li{
   padding-right: 10px;
@@ -196,13 +240,16 @@ nav div{
 }
 
 .second-section-img{
-  margin-top: 6rem;
+  margin-top: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   right: 0;
   margin-top: 40px;
   opacity: 1;
+}
+.second-section-img img{
+  height: 90vh;
 }
 .second-section-content{
   display: flex;
@@ -390,6 +437,9 @@ span.details-icon{
 }
 .card-body{
   padding: 25px;
+}
+.card-title{
+  font-weight: 550;
 }
 .btn-primary{
   /* padding: none; */

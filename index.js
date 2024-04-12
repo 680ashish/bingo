@@ -2,19 +2,24 @@
 function loaderTime(){
   var a=0;
   setInterval(() => {
+
     a+= Math.floor(Math.random()*20);
+    a++;
     if(a<=100){
       document.querySelector(".loader").innerHTML= a + "%";
-      console.log(a)
+      // console.log(a)
+    }
+    else if(a>90){
+      a=100;
+      document.querySelector(".loader").innerHTML= a + "%";
+
     }
     else{
       a=100;
     }
-  }, 150);
+    
+  }, 180);
 }
-// loaderTime();
-
-
 
 gsap.registerPlugin(ScrollTrigger);
 var tl=gsap.timeline();
@@ -28,6 +33,7 @@ tl.to(".loader",{
   delay:0.5,
   duration:1.5
 })
+loaderTime();
 
 
 // tl.from("nav",{
@@ -62,7 +68,7 @@ gsap.from(".second-section-content .text h3, .second-section-content .text p",{
   scrollTrigger:{
     trigger:".second-section-content",
     scroller:"body",
-    // markers:true,
+  
     // pin:true
     // scrub:true
   }
@@ -74,8 +80,12 @@ gsap.to(".cards-container .cards",{
   opacity:1,
   stagger:0.6,
   scrollTrigger:{
-    trigger:".cards-container .cards",
-    scroller:"body",
+    trigger:".cards-container",
+    // scroller:"body",
+    start: "top center", // start the animation when the top of the trigger element reaches the center of the viewport
+    end: "bottom center", // end the animation when the bottom of the trigger element reaches the center of the viewport
+    // scrub: true,
+    // markers: true 
     // scrub:true
   }
 });
@@ -146,22 +156,43 @@ gsap.from(".fourth-section-text h3, .fourth-section-text p, .contact-section .bt
     scroller:"body",
   }
 });
-function counter(){
-  
-  let count=0;
 
-  let h3counter= document.querySelectorAll('.details-cards h3');
-
-  setInterval(() => {
-    if(count<69){
-      count++;
-      h3counter.forEach(h3 => {
-        h3.innerHTML = count;
-      });
-  }
-  else{
-      count=69;
-  }
-  }, 20);
+const cardsH3 = document.querySelectorAll('.details-cards h3');
+function animateH3(cardH3){
+  gsap.to(cardH3,{
+    innerHTML:100,
+    duration:0.5,
+    roundProps:'innerHTML',
+    ease:'power1.out',
+    delay:0.2
+  });
 }
-counter();
+// check if user is in viewport
+function isElementInViewport(el){
+  const rect = el.getBoundingClientRect();
+  return(
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth|| document.documentElement.clientWidth) 
+  );
+}
+
+//fucntion to handle scroll event
+function handleScroll(){
+  cardsH3.forEach(cardH3 =>{
+    if(isElementInViewport(cardH3)){
+      animateH3(cardH3);
+    }
+  })
+}
+
+window.addEventListener('scroll',handleScroll);
+
+
+//darkmode bc
+const darkmodeToggle = document.querySelector('.darkmode');
+darkmodeToggle.addEventListener('click',()=>{
+  // console.log("bru");
+  alert("darkmode banane me maut aa rhi this isliye chod diya .. please fuk off !")
+})
